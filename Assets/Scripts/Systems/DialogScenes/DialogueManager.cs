@@ -28,7 +28,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextLine()
     {
-        if (currentLineIndex < currentDialogue.lines.Length)
+        if (currentLineIndex < currentDialogue.lines.Count)
         {
             DialogueLine line = currentDialogue.lines[currentLineIndex];
             characterNameText.text = line.characterName;
@@ -57,7 +57,7 @@ public class DialogueManager : MonoBehaviour
     private void HandleCharacterMovement(DialogueLine line)
     {
         // Only process if there are events
-        if (line.events != null && line.events.Length > 0)
+        if (line.events != null && line.events.Count > 0)
         {
             foreach (var dialogueEvent in line.events)
             {
@@ -136,7 +136,7 @@ public class DialogueManager : MonoBehaviour
         isEventActive = false;  // Reset the event status after execution
     }
 
-    private IEnumerator WaitForAudioToFinish(float audioLength, DialogueEvent[] events)
+    private IEnumerator WaitForAudioToFinish(float audioLength, System.Collections.Generic.List<DialogueEvent> events)
     {
         float audioEndTime = audioStartTime + audioLength;
 
