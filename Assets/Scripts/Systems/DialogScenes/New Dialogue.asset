@@ -12,14 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42637c97328ea2140bfcf7cd72a78423, type: 3}
   m_Name: New Dialogue
   m_EditorClassIdentifier: 
-  lines:
-  - characterName: 
-    text: 
-    voiceOverClip: {fileID: 0}
-    events:
-    - actionName: 0
-      targetObjectName: 
-      moveToPosition: {x: 0, y: 0, z: 0}
-      moveSpeed: 0
-      mustMoveFirst: 0
-      startTimestamp: 0
+  dialogueTitle: 
+  dialogueDescription: 
+  dialogueLines: []

@@ -1,0 +1,72 @@
+{
+  "dialogueTitle": "Test Conversation",
+  "dialogueDescription": "This is a test conversation between Dr. Emily Hart and Dr. Samuel Williams.",
+  "dialogueLines": [
+    {
+      "characterName": "Dr. Emily Hart",
+      "receiver": "Dr. Samuel Williams",
+      "dialogueText": "Samuel, have you checked the reactor logs today?",
+      "voiceOver": "Assets/Audio/DrEmily_Hart_Line1.wav",
+      "timestamp": 0,
+      "events": [
+        {
+          "actionType": "Move",
+          "target": "Terminal",
+          "targetPosition": { "x": 3.5, "y": 0, "z": 2.0 },
+          "animationName": "Walk"
+        }
+      ]
+    },
+    {
+      "characterName": "Dr. Samuel Williams",
+      "receiver": "Dr. Emily Hart",
+      "dialogueText": "Yes, but something doesn't seem right. I noticed some anomalies.",
+      "voiceOver": "Assets/Audio/DrSamuel_Williams_Line1.wav",
+      "timestamp": 0,
+      "events": [
+        {
+          "actionType": "React",
+          "target": "Self",
+          "animationName": "Concerned"
+        }
+      ]
+    },
+    {
+      "characterName": "Dr. Emily Hart",
+      "receiver": "Dr. Samuel Williams",
+      "dialogueText": "Anomalies? What kind of anomalies?",
+      "voiceOver": "Assets/Audio/DrEmily_Hart_Line2.wav",
+      "timestamp": 0,
+      "events": []
+    },
+    {
+      "characterName": "Dr. Samuel Williams",
+      "receiver": "Dr. Emily Hart",
+      "dialogueText": "Unusual power surges, almost as if something is drawing energy we didn't account for.",
+      "voiceOver": "Assets/Audio/DrSamuel_Williams_Line2.wav",
+      "timestamp": 0,
+      "events": [
+        {
+          "actionType": "Animate",
+          "target": "Dr. Emily Hart",
+          "animationName": "Shock"
+        }
+      ]
+    },
+    {
+      "characterName": "Dr. Emily Hart",
+      "receiver": "Dr. Samuel Williams",
+      "dialogueText": "We need to investigate this immediately. Can you check the sub-level logs?",
+      "voiceOver": "Assets/Audio/DrEmily_Hart_Line3.wav",
+      "timestamp": 0,
+      "events": [
+        {
+          "actionType": "Move",
+          "target": "SubLevelTerminal",
+          "targetPosition": { "x": -2.0, "y": 0, "z": -4.0 },
+          "animationName": "Run"
+        }
+      ]
+    }
+  ]
+}
