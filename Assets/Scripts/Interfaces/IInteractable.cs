@@ -1,7 +1,9 @@
+using UnityEngine;
+
 namespace Assets.Scripts.Interfaces
 {
     public interface IInteractable
     {
-        void Interact();
+        void Interact(Transform source);
     }
 }

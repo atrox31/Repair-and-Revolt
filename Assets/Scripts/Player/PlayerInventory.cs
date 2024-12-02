@@ -7,6 +7,8 @@ namespace Assets.Scripts.Player
     [RequireComponent(typeof(PlayerInput))]
     public class PlayerInventory : MonoBehaviour
     {
+        private const string ActionName = "InventorySlotChange";
+
         [SerializeField] private InventoryView _view;
         [SerializeField] private int _capacity = 6;
 
@@ -22,15 +24,15 @@ namespace Assets.Scripts.Player
 
         private void OnEnable()
         {
-            _playerInput.actions["InventorySlot"].performed += HandleOnInventorySlot;
+            _playerInput.actions[ActionName].performed += HandleOnInventorySlotChange;
         }
 
         private void OnDisable()
         {
-            _playerInput.actions["InventorySlot"].performed -= HandleOnInventorySlot;
+            _playerInput.actions[ActionName].performed -= HandleOnInventorySlotChange;
         }
 
-        private void HandleOnInventorySlot(InputAction.CallbackContext obj)
+        private void HandleOnInventorySlotChange(InputAction.CallbackContext obj)
         {
             var name = obj.control.displayName;
 

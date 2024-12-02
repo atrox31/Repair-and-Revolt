@@ -1,13 +1,21 @@
-﻿using Assets.Scripts.Interfaces;
+﻿using Assets.Scripts.Systems.Inventory;
 using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class Card : MonoBehaviour, IInteractable
+    [RequireComponent(typeof(Outline))]
+    public class Card : InventoryItem
     {
-        public void Interact()
+        private Outline _outline;
+
+        private void Awake()
         {
-            Debug.Log("It is working!");
+            _outline = GetComponent<Outline>();
+        }
+
+        public override void Use()
+        {
+            Debug.Log("Card item used!");
         }
     }
 }

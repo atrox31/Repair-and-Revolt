@@ -31,7 +31,7 @@ namespace Assets.Scripts.Player
         private void OnPlayerInteract(InputAction.CallbackContext obj)
         {
             var interactable = _source.GetTargetAsInteractable(_interactRange);
-            interactable?.Interact();
+            interactable?.Interact(_source);
         }
     }
 }
