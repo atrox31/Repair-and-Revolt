@@ -11,21 +11,23 @@ namespace Assets.Scripts.Player
 
         private PlayerInput _playerInput;
         private Transform _source;
+        private InputAction _interactInputAsset;
 
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
+            _interactInputAsset = _playerInput.actions["Interact"];
             _source = GetComponentInChildren<Camera>().transform;
         }
 
         private void OnEnable()
         {
-            _playerInput.actions["Interact"].performed += OnPlayerInteract;
+            _interactInputAsset.performed += OnPlayerInteract;
         }
 
         private void OnDisable()
         {
-            _playerInput.actions["Interact"].performed -= OnPlayerInteract;
+            _interactInputAsset.performed -= OnPlayerInteract;
         }
 
         private void OnPlayerInteract(InputAction.CallbackContext obj)
