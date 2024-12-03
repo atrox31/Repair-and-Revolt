@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Systems.Inventory;
+﻿using Assets.QuickOutline.Scripts;
+using Assets.Scripts.Systems.Inventory;
 using UnityEngine;
 
 namespace Assets.Scripts

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Assets.Prefabs.Level.rooms.var2;
 using Assets.Scripts.Extensions;
 using UnityEngine;
 
