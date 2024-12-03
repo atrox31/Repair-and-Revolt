@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1275467895
+--- !u!1 &1023225438
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,72 +127,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1275467897}
-  - component: {fileID: 1275467896}
+  - component: {fileID: 1023225439}
+  - component: {fileID: 1023225440}
   m_Layer: 0
-  m_Name: WorldGenerator
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1275467896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1275467895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f660f53455db8ec49af68991c384fb35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RoomPrefabs:
-  - {fileID: 5260128874364610696, guid: 1eff88dae59b0ea44a13e4c9dd973baa, type: 3}
-  ValleyVertical:
-  - {fileID: 1073494330348567885, guid: ca59e08c3b56f554b8a181ae1ec04f7f, type: 3}
-  ValleyVerticalLeft:
-  - {fileID: 3989393636309606923, guid: fbf4181acb83161478c99bf2e78683b6, type: 3}
-  ValleyVerticalRight:
-  - {fileID: 605869394528725960, guid: 6c8d9c09548b6144997830066548623c, type: 3}
-  ValleyHorizontal:
-  - {fileID: 4858865072101597268, guid: 59186397ac1b8a04a85a70b9d2c64742, type: 3}
-  ValleyHorizontalUp:
-  - {fileID: 8358450018688169583, guid: 804336ea732e5d24c85cc6f6f8b1f0ba, type: 3}
-  ValleyHorizontalDown:
-  - {fileID: 1777259449412875421, guid: 2611428276a0e344c80e32b1487e68f5, type: 3}
-  Valley4Siedes:
-  - {fileID: 1935789607111940943, guid: 8640efc96ed218149aa5cd252c44da0b, type: 3}
-  ValleyDeadEndUp:
-  - {fileID: 6881038819913499375, guid: 508d910e5f28d2b4e913f6c6ece560bc, type: 3}
-  ValleyDeadEndDown:
-  - {fileID: 1871375966492184341, guid: 65e89a56fc14fdf4cbc52163d6afb9af, type: 3}
-  ValleyDeadEndLeft:
-  - {fileID: 7188049299418824161, guid: 81327c964b8533140bf303fd096d6ed3, type: 3}
-  ValleyDeadEndRight:
-  - {fileID: 1378768472309989254, guid: fe20ff3eccba93c4791c7428bbd7e1ca, type: 3}
-  ValleyCornerUpRight:
-  - {fileID: 4677312921062333098, guid: 151a0ebe38f23b0488732f765ce7ec55, type: 3}
-  ValleyCornerUpLeft:
-  - {fileID: 3477584968170588666, guid: a2a30b20d5d79a443b15eac2551de8e5, type: 3}
-  ValleyCornerDownRight:
-  - {fileID: 4485818045639166611, guid: a62ba7aaa3236c94c916deef6cb052a5, type: 3}
-  ValleyCornerDownLeft:
-  - {fileID: 6886292264336716317, guid: e70cb691c6b99d746a8946deabb202fa, type: 3}
-  WorldSizeWidth: 64
-  WorldSizeHeight: 64
-  RoomCount: 40
-  DeadEndsCount: 4
-  PlayerPrefab: {fileID: 1066070825192133009, guid: fac45298887ce5b45bab9d99413af6bc, type: 3}
-  GeneratePlayer: 0
---- !u!4 &1275467897
+--- !u!4 &1023225439
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1275467895}
+  m_GameObject: {fileID: 1023225438}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -201,6 +151,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1023225440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023225438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4453651199e182a499724425704c3522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelScene:
+    m_Handle: 0
 --- !u!1 &2021012440
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,4 +267,4 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2021012442}
-  - {fileID: 1275467897}
+  - {fileID: 1023225439}

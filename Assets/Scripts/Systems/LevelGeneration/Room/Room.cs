@@ -4,49 +4,34 @@ using UnityEngine;
 
 namespace Assets.Scripts.Systems.LevelGeneration
 {
-    public class Room_backup : MonoBehaviour
+   
+    public class Room : MonoBehaviour
     {
-        [SerializeField] public int RoomMinWidth = 2;
-        [SerializeField] public int RoomMaxWidth= 5;
-        [SerializeField] public int RoomMinHeight  = 2;
-        [SerializeField] public int RoomMaxHeight = 5;
-        [SerializeField] public int RoomChanceToBeSquare = 50;
+        public static void SetDimensions(out int width, out int height, RoomTemplate roomTemplate)
+        {
+            if (Random.Range(0, 100) > roomTemplate.RoomChanceToBeSquare)
+            {
+                int square = Random.Range((roomTemplate.RoomMinWidth + roomTemplate.RoomMinHeight) / 2, (roomTemplate.RoomMaxWidth + roomTemplate.RoomMaxHeight) / 2 + 1);
+                width = square;
+                height = square;
+            }
+            else
+            {
+                width = Random.Range(roomTemplate.RoomMinWidth, roomTemplate.RoomMaxWidth + 1);
+                height = Random.Range(roomTemplate.RoomMinHeight, roomTemplate.RoomMaxHeight + 1);
+            }
+        }
 
-        [SerializeField] List<GameObject> Wall0ExitUp;
-        [SerializeField] List<GameObject> Wall0ExitDown;
-        [SerializeField] List<GameObject> Wall0ExitLeft;
-        [SerializeField] List<GameObject> Wall0ExitRight;
-
-        [SerializeField] List<GameObject> Wall1ExitUp;
-        [SerializeField] List<GameObject> Wall1ExitDown;
-        [SerializeField] List<GameObject> Wall1ExitLeft;
-        [SerializeField] List<GameObject> Wall1ExitRight;
-
-        [SerializeField] List<GameObject> Corner0ExitUpRight;
-        [SerializeField] List<GameObject> Corner0ExitUpLeft;
-        [SerializeField] List<GameObject> Corner0ExitDownRight;
-        [SerializeField] List<GameObject> Corner0ExitDownLeft;
-
-        [SerializeField] List<GameObject> Corner1ExitUpLeftVertical;
-        [SerializeField] List<GameObject> Corner1ExitUpLeftHorizontal;
-        [SerializeField] List<GameObject> Corner1ExitUpRightVertical;
-        [SerializeField] List<GameObject> Corner1ExitUpRightHorizontal;
-        [SerializeField] List<GameObject> Corner1ExitDownRightVertical;
-        [SerializeField] List<GameObject> Corner1ExitDownRightHorizontal;
-        [SerializeField] List<GameObject> Corner1ExitDownLeftVertical;
-        [SerializeField] List<GameObject> Corner1ExitDownLeftHorizontal;
-
-        [SerializeField] List<GameObject> Corner2ExitUpRight;
-        [SerializeField] List<GameObject> Corner2ExitUpLeft;
-        [SerializeField] List<GameObject> Corner2ExitDownRight;
-        [SerializeField] List<GameObject> Corner2ExitDownLeft;
-
-        [SerializeField] List<GameObject> CenterRoom;
-
-
+        private enum RoomPlanSpace
+        {
+            NotSet, Empty, Wall, Corner, Entry
+        }
+        public RoomType Type { get; private set; } = RoomType.Empty;
+        public int SecutityLevel { get; private set; }
 
         private int Width;
         private int Height;
+        private RoomTemplate roomTemplate;
 
         public int GetHeight()
         {
@@ -57,29 +42,40 @@ namespace Assets.Scripts.Systems.LevelGeneration
             return Width;
         }
 
-        private void Start()
-        {
-        
-        }
         private bool _isGenerated = false;
-        public void GenerateRoom(int px, int py, int width, int height)
+        public void GenerateRoom(int px, int py, int width, int height, RoomTemplate roomTemplate, World world)
         {
             if (_isGenerated)
             {
                 Debug.Log("This room is generated, can not do this twice! You moron -.-");
                 return;
             }
-
+            this.roomTemplate = roomTemplate;
             Width = width;
             Height = height;
+            SecutityLevel = roomTemplate.SecurityLevel;
+            Type = roomTemplate.Type;
+
+            RoomPlanSpace[] room_plan = new RoomPlanSpace[Width * Height];
+            // safe guard for debug
+            room_plan.Fill(RoomPlanSpace.NotSet);
+
+            CreateFloorAndWalls(room_plan, px, py, world);
+            GenerateInterior(room_plan);
 
             _isGenerated = true;
             Debug.Log("Generate room width(" + Width.ToString() + ") height (" + Height.ToString() + ")");
             //
+        }
+
+        void CreateFloorAndWalls(RoomPlanSpace[] room_plan, int px, int py, World world)
+        {
+            int index = -1;
             for (int x = px; x < px + Width; x++)
             {
                 for (int y = py; y < py + Height; y++)
                 {
+                    index++;
                     //Debug.Log("Generate title");
                     bool upValley = false;
                     bool downValley = false;
@@ -93,19 +89,24 @@ namespace Assets.Scripts.Systems.LevelGeneration
 
                     bool center = false;
 
-                    if (World.Instance.IsInBoundry(x - 1, y) && (World.Instance.Get(x - 1, y) == World.WorldTitle.VALLEY)) leftValley = true;
-                    if (World.Instance.IsInBoundry(x + 1, y) && (World.Instance.Get(x + 1, y) == World.WorldTitle.VALLEY)) rightValley = true;
-                    if (World.Instance.IsInBoundry(x, y - 1) && (World.Instance.Get(x, y - 1) == World.WorldTitle.VALLEY)) upValley = true;
-                    if (World.Instance.IsInBoundry(x, y + 1) && (World.Instance.Get(x, y + 1) == World.WorldTitle.VALLEY)) downValley = true;
+                    if (world.IsInBoundry(x - 1, y) && (world.Get(x - 1, y) == World.WorldTitle.VALLEY)) leftValley = true;
+                    if (world.IsInBoundry(x + 1, y) && (world.Get(x + 1, y) == World.WorldTitle.VALLEY)) rightValley = true;
+                    if (world.IsInBoundry(x, y - 1) && (world.Get(x, y - 1) == World.WorldTitle.VALLEY)) upValley = true;
+                    if (world.IsInBoundry(x, y + 1) && (world.Get(x, y + 1) == World.WorldTitle.VALLEY)) downValley = true;
 
-                    if (World.Instance.IsInBoundry(x - 1, y) && (World.Instance.Get(x - 1, y) == World.WorldTitle.ROOM)) leftRoom = true;
-                    if (World.Instance.IsInBoundry(x + 1, y) && (World.Instance.Get(x + 1, y) == World.WorldTitle.ROOM)) rightRoom = true;
-                    if (World.Instance.IsInBoundry(x, y - 1) && (World.Instance.Get(x, y - 1) == World.WorldTitle.ROOM)) upRoom = true;
-                    if (World.Instance.IsInBoundry(x, y + 1) && (World.Instance.Get(x, y + 1) == World.WorldTitle.ROOM)) downRoom = true;
+                    if (world.IsInBoundry(x - 1, y) && (world.Get(x - 1, y) == World.WorldTitle.ROOM)) leftRoom = true;
+                    if (world.IsInBoundry(x + 1, y) && (world.Get(x + 1, y) == World.WorldTitle.ROOM)) rightRoom = true;
+                    if (world.IsInBoundry(x, y - 1) && (world.Get(x, y - 1) == World.WorldTitle.ROOM)) upRoom = true;
+                    if (world.IsInBoundry(x, y + 1) && (world.Get(x, y + 1) == World.WorldTitle.ROOM)) downRoom = true;
 
                     if (upRoom && downRoom && rightRoom && leftRoom)
                     {
                         center = true;
+                        room_plan[index] = RoomPlanSpace.Empty;
+                    }
+                    else
+                    {
+                        room_plan[index] = (upValley || downValley || leftValley || rightValley) ? RoomPlanSpace.Entry : RoomPlanSpace.Wall;
                     }
 
                     if (!center)
@@ -114,76 +115,80 @@ namespace Assets.Scripts.Systems.LevelGeneration
                         if (!upValley && !downValley && !rightValley && !leftValley
                             && upRoom && !downRoom && rightRoom && leftRoom)
                         {
-                            CreatePart(x, y, Wall0ExitUp.GetRandomElement());
+                            CreatePart(x, y, 0, roomTemplate.Wall0Exit.GetRandomElement());
                             continue;
                         }
                         if (!upValley && !downValley && !rightValley && !leftValley
                             && !upRoom && downRoom && rightRoom && leftRoom)
                         {
-                            CreatePart(x, y, Wall0ExitDown.GetRandomElement());
+                            CreatePart(x, y, 2, roomTemplate.Wall0Exit.GetRandomElement());
                             continue;
                         }
                         if (!upValley && !downValley && !rightValley && !leftValley
                             && upRoom && downRoom && rightRoom && !leftRoom)
                         {
-                            CreatePart(x, y, Wall0ExitLeft.GetRandomElement());
+                            CreatePart(x, y, 3, roomTemplate.Wall0Exit.GetRandomElement());
                             continue;
                         }
                         if (!upValley && !downValley && !rightValley && !leftValley
                             && upRoom && downRoom && !rightRoom && leftRoom)
                         {
-                            CreatePart(x, y, Wall0ExitRight.GetRandomElement());
+                            CreatePart(x, y, 1, roomTemplate.Wall0Exit.GetRandomElement());
                             continue;
                         }
                         // flat wall 1 exit
                         if (upValley && !downValley && !rightValley && !leftValley
                             && !upRoom && downRoom && rightRoom && leftRoom)
                         {
-                            CreatePart(x, y, Wall1ExitDown.GetRandomElement());
+                            CreatePart(x, y, 2, roomTemplate.Wall1Exit.GetRandomElement());
                             continue;
                         }
                         if (!upValley && downValley && !rightValley && !leftValley
                             && upRoom && !downRoom && rightRoom && leftRoom)
                         {
-                            CreatePart(x, y, Wall1ExitUp.GetRandomElement());
+                            CreatePart(x, y, 0, roomTemplate.Wall1Exit.GetRandomElement());
                             continue;
                         }
                         if (!upValley && !downValley && !rightValley && leftValley
                             && upRoom && downRoom && rightRoom && !leftRoom)
                         {
-                            CreatePart(x, y, Wall1ExitLeft.GetRandomElement());
+                            CreatePart(x, y, 3, roomTemplate.Wall1Exit.GetRandomElement());
                             continue;
                         }
                         if (!upValley && !downValley && rightValley && !leftValley
                             && upRoom && downRoom && !rightRoom && leftRoom)
                         {
-                            CreatePart(x, y, Wall1ExitRight.GetRandomElement());
+                            CreatePart(x, y, 1, roomTemplate.Wall1Exit.GetRandomElement());
                             continue;
                         }
                         // corners - no valley
                         if (!upValley && !downValley && !rightValley && !leftValley
                             && !upRoom && downRoom && !rightRoom && leftRoom)
                         {
-                            CreatePart(x, y, Corner0ExitDownRight.GetRandomElement());
+                            CreatePart(x, y, 1, roomTemplate.Corner0Exit.GetRandomElement());
+                            room_plan[index] = RoomPlanSpace.Corner;
                             continue;
                         }
                         if (!upValley && !downValley && !rightValley && !leftValley
                             && !upRoom && downRoom && rightRoom && !leftRoom)
                         {
-                            CreatePart(x, y, Corner0ExitDownLeft.GetRandomElement());
+                            CreatePart(x, y, 2, roomTemplate.Corner0Exit.GetRandomElement());
+                            room_plan[index] = RoomPlanSpace.Corner;
                             continue;
 
                         }
                         if (!upValley && !downValley && !rightValley && !leftValley
                             && upRoom && !downRoom && rightRoom && !leftRoom)
                         {
-                            CreatePart(x, y, Corner0ExitUpLeft.GetRandomElement());
+                            CreatePart(x, y, 3, roomTemplate.Corner0Exit.GetRandomElement());
+                            room_plan[index] = RoomPlanSpace.Corner;
                             continue;
                         }
                         if (!upValley && !downValley && !rightValley && !leftValley
                             && upRoom && !downRoom && !rightRoom && leftRoom)
                         {
-                            CreatePart(x, y, Corner0ExitUpRight.GetRandomElement());
+                            CreatePart(x, y, 0, roomTemplate.Corner0Exit.GetRandomElement());
+                            room_plan[index] = RoomPlanSpace.Corner;
                             continue;
                         }
 
@@ -191,90 +196,102 @@ namespace Assets.Scripts.Systems.LevelGeneration
                         if (!upValley && !downValley && !rightValley && leftValley
                             && !upRoom && downRoom && rightRoom && !leftRoom)
                         {
-                            CreatePart(x, y, Corner1ExitDownLeftHorizontal.GetRandomElement());
+                            CreatePart(x, y, 2, roomTemplate.Corner1ExitV2.GetRandomElement());
                             continue;
                         }
                         if (!upValley && !downValley && rightValley && !leftValley
                             && !upRoom && downRoom && !rightRoom && leftRoom)
                         {
-                            CreatePart(x, y, Corner1ExitDownRightHorizontal.GetRandomElement());
+                            CreatePart(x, y, 1, roomTemplate.Corner1ExitV1.GetRandomElement());
                             continue;
                         }
                         if (!upValley && !downValley && rightValley && !leftValley
                             && upRoom && !downRoom && !rightRoom && leftRoom)
                         {
-                            CreatePart(x, y, Corner1ExitUpRightHorizontal.GetRandomElement());
+                            CreatePart(x, y, 0, roomTemplate.Corner1ExitV2.GetRandomElement());
                             continue;
                         }
                         if (!upValley && !downValley && !rightValley && leftValley
                             && upRoom && !downRoom && rightRoom && !leftRoom)
                         {
-                            CreatePart(x, y, Corner1ExitUpLeftHorizontal.GetRandomElement());
+                            CreatePart(x, y, 3, roomTemplate.Corner1ExitV1.GetRandomElement());
                             continue;
                         }
-                    
+
                         // corners 1 valley vertical entrance
                         if (upValley && !downValley && !rightValley && !leftValley
                             && !upRoom && downRoom && rightRoom && !leftRoom)
                         {
-                            CreatePart(x, y, Corner1ExitDownLeftVertical.GetRandomElement());
+                            CreatePart(x, y, 2, roomTemplate.Corner1ExitV1.GetRandomElement());
                             continue;
                         }
                         if (upValley && !downValley && !rightValley && !leftValley
                             && !upRoom && downRoom && !rightRoom && leftRoom)
                         {
-                            CreatePart(x, y, Corner1ExitDownRightVertical.GetRandomElement());
+                            CreatePart(x, y, 1, roomTemplate.Corner1ExitV2.GetRandomElement());
                             continue;
                         }
                         if (!upValley && downValley && !rightValley && !leftValley
                             && upRoom && !downRoom && rightRoom && !leftRoom)
                         {
-                            CreatePart(x, y, Corner1ExitUpLeftVertical.GetRandomElement());
+                            CreatePart(x, y, 3, roomTemplate.Corner1ExitV2.GetRandomElement());
                             continue;
                         }
                         if (!upValley && downValley && !rightValley && !leftValley
                             && upRoom && !downRoom && !rightRoom && leftRoom)
                         {
-                            CreatePart(x, y, Corner1ExitUpRightVertical.GetRandomElement());
+                            CreatePart(x, y, 0, roomTemplate.Corner1ExitV1.GetRandomElement());
                             continue;
                         }
 
                         // corners 2 valley
                         if (upValley && !downValley && !rightValley && leftValley)
                         {
-                            CreatePart(x, y, Corner2ExitUpLeft.GetRandomElement());
+                            CreatePart(x, y, 2, roomTemplate.Corner2Exit.GetRandomElement());
                             continue;
                         }
                         if (upValley && !downValley && rightValley && !leftValley)
                         {
-                            CreatePart(x, y, Corner2ExitDownLeft.GetRandomElement());
+                            CreatePart(x, y, 1, roomTemplate.Corner2Exit.GetRandomElement());
                             continue;
                         }
                         if (!upValley && downValley && rightValley && !leftValley)
                         {
-                            CreatePart(x, y, Corner2ExitDownRight.GetRandomElement());
+                            CreatePart(x, y, 0, roomTemplate.Corner2Exit.GetRandomElement());
                             continue;
                         }
                         if (!upValley && downValley && !rightValley && leftValley)
                         {
-                            CreatePart(x, y, Corner2ExitUpRight.GetRandomElement());
+                            CreatePart(x, y, 3, roomTemplate.Corner2Exit.GetRandomElement());
                             continue;
                         }
-                   
+
                     }
                     else
                     {
                         // center
-                        CreatePart(x, y, CenterRoom.GetRandomElement());
+                        CreatePart(x, y, 0, roomTemplate.CenterRoom.GetRandomElement());
                     }
                 }
             }
         }
 
-        void CreatePart(int x, int y, GameObject room_type)
+        void CreatePart(int x, int y, int rotate, GameObject room_type)
         {
-            Instantiate(room_type, new Vector3(x * WorldGenerator.WorldScaleX, 0, y * WorldGenerator.WorldScaleY), Quaternion.identity, transform);
+            GameObject t = Instantiate(room_type,
+                new Vector3(
+                    x * WorldGenerator.WorldScaleX - (WorldGenerator.WorldScaleX / 2),
+                    transform.position.y,
+                    y * WorldGenerator.WorldScaleY - (WorldGenerator.WorldScaleY / 2)),
+                Quaternion.identity,
+                transform);
+            t.transform.Rotate(new Vector3(0, 1, 0), rotate * 90);
  
+        }
+
+        void GenerateInterior(RoomPlanSpace[] room_plan)
+        {
+
         }
     }
 }

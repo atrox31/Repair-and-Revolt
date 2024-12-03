@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2436534748292407252}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: wall filar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8114261153429354431}
   - component: {fileID: 7852093553671729771}
   - component: {fileID: 911658171814123490}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3321140082029625313}
   - component: {fileID: 2775977426646230201}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 4483879917758045733}
   - component: {fileID: 7297682938948677771}
   - component: {fileID: 3041780414267123902}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
