@@ -1,19 +1,26 @@
 using System.Collections;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, ISingleton<GameManager>
 {
+    [Header("Game statistic")]
+    public static readonly float StateSuspiciousMeterGrow = 0.2f; // per seccond
+
+    [Header("Game assets")]
     [SerializeField] Scene LevelScene;
+
+    // global flags
+    public static bool GlobalStatus_PlayerIsSuspicious = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartCoroutine(LoadAsyncScene()); // 1
-        StartCoroutine(LoadAsyncScene()); // 2
-        StartCoroutine(LoadAsyncScene()); // 3
-        StartCoroutine(LoadAsyncScene()); // 4
-        StartCoroutine(LoadAsyncScene()); // 5
+       // StartCoroutine(LoadAsyncScene()); // 2
+       // StartCoroutine(LoadAsyncScene()); // 3
+       // StartCoroutine(LoadAsyncScene()); // 4
+       // StartCoroutine(LoadAsyncScene()); // 5
     }
 
     IEnumerator LoadAsyncScene()
