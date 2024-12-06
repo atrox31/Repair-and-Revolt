@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1104731388935386538}
   - component: {fileID: 5098812793867398647}
   - component: {fileID: 255014067187946191}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7944964682885319234}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 2541358319846151934}
   - component: {fileID: 8654594204868670567}
   - component: {fileID: 9065106576214428561}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 2605586111691913699}
   - component: {fileID: 4403518287663822649}
   - component: {fileID: 2440563147083297785}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 4268052577078974289}
   - component: {fileID: 5907297185348934653}
   - component: {fileID: 676576985414459468}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_Door_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

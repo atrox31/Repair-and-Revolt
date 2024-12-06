@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4277061447056428752}
   - component: {fileID: 8739052730957453742}
   - component: {fileID: 2665158150100432630}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 576937134735396295}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 9120771587436037394}
   - component: {fileID: 8870084440141318160}
   - component: {fileID: 1426158596871638414}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 4655543674199823642}
   - component: {fileID: 3846022451616000547}
   - component: {fileID: 8374459564748034690}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 8390055744436877251}
   - component: {fileID: 167787502882343313}
   - component: {fileID: 4923588057797096102}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +478,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4375949357636444133}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 1346189056699892752}
   - component: {fileID: 2470232583563173529}
   - component: {fileID: 132466594143708292}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,7 +620,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 968101212666074537}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 3332030354086404148}
   - component: {fileID: 4757305498487819036}
   - component: {fileID: 459611647088782499}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 4956492897022359443}
   - component: {fileID: 5026022929625314399}
   - component: {fileID: 3822731764826457172}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -874,7 +874,7 @@ GameObject:
   - component: {fileID: 3967050045782511661}
   - component: {fileID: 2527434022086292877}
   - component: {fileID: 9129880247149363061}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -981,7 +981,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6823057846227287648}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1012,9 +1012,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6080265239536710689}
     m_Modifications:
+    - target: {fileID: 100120, guid: ff42754d1c37f4da7b050c07fe83d3af, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 103288, guid: ff42754d1c37f4da7b050c07fe83d3af, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 108888, guid: ff42754d1c37f4da7b050c07fe83d3af, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 117012, guid: ff42754d1c37f4da7b050c07fe83d3af, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 151682, guid: ff42754d1c37f4da7b050c07fe83d3af, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 169944, guid: ff42754d1c37f4da7b050c07fe83d3af, type: 3}
       propertyPath: m_Name
       value: Wall_HalfArc_90_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 169944, guid: ff42754d1c37f4da7b050c07fe83d3af, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 188478, guid: ff42754d1c37f4da7b050c07fe83d3af, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 414920, guid: ff42754d1c37f4da7b050c07fe83d3af, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1086,9 +1114,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6080265239536710689}
     m_Modifications:
+    - target: {fileID: 160264, guid: c27c7521daec24863af069554ea1fb47, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 177348, guid: c27c7521daec24863af069554ea1fb47, type: 3}
       propertyPath: m_Name
       value: Roof_Angle_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 177348, guid: c27c7521daec24863af069554ea1fb47, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 428500, guid: c27c7521daec24863af069554ea1fb47, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1151,6 +1187,10 @@ PrefabInstance:
     - target: {fileID: 2881098664185841596, guid: 1d46d5061cdbcfb4f8cbce94cba48131, type: 3}
       propertyPath: m_Name
       value: valley up to right
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881098664185841596, guid: 1d46d5061cdbcfb4f8cbce94cba48131, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4888688077264927335, guid: 1d46d5061cdbcfb4f8cbce94cba48131, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1250,6 +1290,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roof_Angle_Smal_01
       objectReference: {fileID: 0}
+    - target: {fileID: 158986, guid: d3cf9ea092c094147a2a98c2a7973a3e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 166408, guid: d3cf9ea092c094147a2a98c2a7973a3e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 495638, guid: d3cf9ea092c094147a2a98c2a7973a3e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.165
@@ -1308,9 +1356,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6080265239536710689}
     m_Modifications:
+    - target: {fileID: 120198, guid: 13990f94448cc49c08e917134d8b0479, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 135808, guid: 13990f94448cc49c08e917134d8b0479, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 149104, guid: 13990f94448cc49c08e917134d8b0479, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 157892, guid: 13990f94448cc49c08e917134d8b0479, type: 3}
       propertyPath: m_Name
       value: Wall_Arc_90_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 157892, guid: 13990f94448cc49c08e917134d8b0479, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198318, guid: 13990f94448cc49c08e917134d8b0479, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 484998, guid: 13990f94448cc49c08e917134d8b0479, type: 3}
       propertyPath: m_LocalPosition.x

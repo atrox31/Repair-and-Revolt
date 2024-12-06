@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1314452056323166303}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 3694031140877896996}
   - component: {fileID: 5629277716567991503}
   - component: {fileID: 2544143581052964731}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 7728279714045452187}
   - component: {fileID: 1296652598780887759}
   - component: {fileID: 4768838303245515634}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 397280716087572387}
   - component: {fileID: 3909409955163835582}
   - component: {fileID: 3752241329894306965}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +368,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 300167808757072420}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9163170484002296818}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3713477337565464598}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 5192888263366168095}
   - component: {fileID: 6681720159494267391}
   - component: {fileID: 4405652917902829809}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +573,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1080654565343770648}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +608,7 @@ GameObject:
   - component: {fileID: 7612054621698455783}
   - component: {fileID: 6420043996300593892}
   - component: {fileID: 228511753886426488}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -714,7 +714,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6750708670316769858}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,7 +746,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2159490248927699811}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -781,7 +781,7 @@ GameObject:
   - component: {fileID: 7950719420995570083}
   - component: {fileID: 1513682337933344219}
   - component: {fileID: 6649779409158482328}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -890,7 +890,7 @@ GameObject:
   - component: {fileID: 3575775827153614852}
   - component: {fileID: 945815600768067409}
   - component: {fileID: 6212574737615427156}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -996,7 +996,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3261420912641237114}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1031,7 +1031,7 @@ GameObject:
   - component: {fileID: 943646198996498831}
   - component: {fileID: 7325381620276971571}
   - component: {fileID: 7030388556225245592}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1140,7 +1140,7 @@ GameObject:
   - component: {fileID: 1269603056891942211}
   - component: {fileID: 6816075362204198976}
   - component: {fileID: 2542402139525236001}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1246,7 +1246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4580189225032341374}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1278,7 +1278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1900340451517273424}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1313,7 +1313,7 @@ GameObject:
   - component: {fileID: 2105337718896078886}
   - component: {fileID: 6017546579034895452}
   - component: {fileID: 1650042195314322264}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1422,7 +1422,7 @@ GameObject:
   - component: {fileID: 6524674601869691309}
   - component: {fileID: 7326009330479087314}
   - component: {fileID: 7796957124747382459}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1532,7 +1532,7 @@ GameObject:
   - component: {fileID: 8500338011909448063}
   - component: {fileID: 3747424464133034584}
   - component: {fileID: 5249387945860732411}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1641,7 +1641,7 @@ GameObject:
   - component: {fileID: 2069257638703331833}
   - component: {fileID: 2495816716147287562}
   - component: {fileID: 5887941654946865987}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1750,7 +1750,7 @@ GameObject:
   - component: {fileID: 998140761477267355}
   - component: {fileID: 8101504461503390202}
   - component: {fileID: 863617210500126149}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1857,7 +1857,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8861323745223722509}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1893,7 +1893,7 @@ GameObject:
   - component: {fileID: 1166531667991207170}
   - component: {fileID: 1778960347787851608}
   - component: {fileID: 6707599588848245988}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: valley dead end left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2032,7 +2032,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8437537631351151966}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2064,7 +2064,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9086161053912444535}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2096,7 +2096,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2124326845042790364}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2128,7 +2128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2240776601073166845}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Simple_01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2160,7 +2160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 663691772742846185}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2195,7 +2195,7 @@ GameObject:
   - component: {fileID: 8490440607737659253}
   - component: {fileID: 5826652854543391915}
   - component: {fileID: 3298870117310290110}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2304,7 +2304,7 @@ GameObject:
   - component: {fileID: 2966706240181606571}
   - component: {fileID: 7225020083891911780}
   - component: {fileID: 9002794139754083943}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2413,7 +2413,7 @@ GameObject:
   - component: {fileID: 5409230708770109963}
   - component: {fileID: 4983227393490130002}
   - component: {fileID: 4592885658696462578}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: entryArchon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

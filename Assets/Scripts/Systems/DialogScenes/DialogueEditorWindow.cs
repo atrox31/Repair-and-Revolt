@@ -26,7 +26,7 @@ public class DialogueEditorWindow : EditorWindow
         EditorGUILayout.LabelField("Dialogue Editor", EditorStyles.boldLabel);
 
         if (dialogueData == null)
-            dialogueData = new DialogueData();
+            dialogueData = ScriptableObject.CreateInstance<DialogueData>();
 
         dialogueData.dialogueTitle = EditorGUILayout.TextField("Title", dialogueData.dialogueTitle);
         dialogueData.dialogueDescription = EditorGUILayout.TextField("Description", dialogueData.dialogueDescription);
