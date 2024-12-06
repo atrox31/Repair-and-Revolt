@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(LoadAsyncScene()); // 4
         StartCoroutine(LoadAsyncScene()); // 5
     }
+
     IEnumerator LoadAsyncScene()
     {
         // The Application loads the Scene in the background at the same time as the current Scene.
@@ -25,10 +26,5 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

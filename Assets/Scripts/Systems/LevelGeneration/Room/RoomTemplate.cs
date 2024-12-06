@@ -19,8 +19,8 @@ namespace Assets.Scripts.Systems.LevelGeneration
         ARIS_ControlCore, BiometricVault, EliteGuardStation, SecureDataArchive, EmergencyShitdownZone,
         /* 6 */
         OfficeDrHart, OfficeDrWilliams, OfficeDrKline, OfficeDrThorne, OfficeDrSinclair, OfficeDeJenson,
-
     }
+
     [CreateAssetMenu(fileName = "New RoomTemplate", menuName = "Room/RoomTemplate")]
     public class RoomTemplate : ScriptableObject
     {
@@ -33,7 +33,6 @@ namespace Assets.Scripts.Systems.LevelGeneration
 
         [Header("Values")]
         [SerializeField] public int SecurityLevel = 0;
-        [Header("Values")]
         [SerializeField] public RoomType Type = 0;
 
         [Header("Interior")]
@@ -42,14 +41,10 @@ namespace Assets.Scripts.Systems.LevelGeneration
         [Header("Exterior")]
         [SerializeField] public List<GameObject> Wall0Exit;
         [SerializeField] public List<GameObject> Wall1Exit;
-
         [SerializeField] public List<GameObject> Corner0Exit;
         [SerializeField] public List<GameObject> Corner1ExitV1;
         [SerializeField] public List<GameObject> Corner1ExitV2;
-
         [SerializeField] public List<GameObject> Corner2Exit;
-
         [SerializeField] public List<GameObject> CenterRoom;
-
     }
 }
