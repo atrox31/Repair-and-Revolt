@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e95f9bb35d7ef64093db262019f6ac2, type: 3}
+  m_Name: 1_UtilityRoom
+  m_EditorClassIdentifier: 
+  RoomMinWidth: 3
+  RoomMaxWidth: 4
+  RoomMinHeight: 3
+  RoomMaxHeight: 4
+  RoomChanceToBeSquare: 50
+  SecurityLevel: 1
+  Type: 4
+  RoomObjects: []
+  Wall0Exit:
+  - {fileID: 789783135200492374, guid: a7cc39cfa61148140950e6f563e10e51, type: 3}
+  Wall1Exit:
+  - {fileID: 5159805642170259782, guid: 56312c0e07c2e414387cbe1023a880dd, type: 3}
+  Corner0Exit:
+  - {fileID: 7385800476595828463, guid: 5189a7dd16cc41c458aa59e9dee0d8e6, type: 3}
+  Corner1ExitV1:
+  - {fileID: 1733474589731563671, guid: aea407724e492dc4da374220842dbf56, type: 3}
+  Corner1ExitV2:
+  - {fileID: 6835040043617621142, guid: 567b008f1a4a8084a835887c20deb7f2, type: 3}
+  Corner2Exit:
+  - {fileID: 932947676382187272, guid: 578cc0b904000d344bcf252da533f5c0, type: 3}
+  CenterRoom:
+  - {fileID: 2846438090535869655, guid: 51b0ac9c208190942ad4384f94ebba7f, type: 3}

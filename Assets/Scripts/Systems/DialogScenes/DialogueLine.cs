@@ -1,25 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts.Systems.DialogScenes
+[System.Serializable]
+public class DialogueLine
 {
-    [System.Serializable]
-    public class DialogueLine
-    {
-        public string characterName;       // The name of the character speaking
-        public string text;                // The text of the dialogue
-        public AudioClip voiceOverClip;    // Optional voice over audio clip
-        public System.Collections.Generic.List<DialogueEvent> events;     // Any events that should be triggered during this line
-
-        public DialogueLine()
-        {
-        }
-
-        public DialogueLine(string speaker, string dialogueText, AudioClip clip, System.Collections.Generic.List<DialogueEvent> dialogueEvents = null)
-        {
-            characterName = speaker;
-            text = dialogueText;
-            voiceOverClip = clip;
-            events = dialogueEvents;
-        }
-    }
+    public string characterName; // Name of the speaking character
+    public string receiver; // Target character to interact with (optional)
+    public string dialogueText; // The line of dialogue
+    public AudioClip voiceOver; // Voice-over clip (optional)
+    public float timestamp; // Time to trigger the line (0 = sequential)
+    public List<DialogueEvent> events = new List<DialogueEvent>(); // Events linked to this line
 }

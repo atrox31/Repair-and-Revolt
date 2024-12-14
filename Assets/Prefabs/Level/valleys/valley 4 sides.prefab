@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1304392952468479695}
   - component: {fileID: 1304392952469575301}
   - component: {fileID: 1367338195305665965}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1304392952467723967}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 1856039534404655427}
   - component: {fileID: 1856039534407505921}
   - component: {fileID: 1856039534406474297}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_Angle_Large_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1856039534404622783}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_Angle_Large_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 5209081911615987115}
   - component: {fileID: 5667833444938681346}
   - component: {fileID: 68704358850033200}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: valley 4 sides
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 2310979008973708836}
   - component: {fileID: 2310979008974804590}
   - component: {fileID: 2373924256111105350}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +528,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2310979008977147476}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,7 +563,7 @@ GameObject:
   - component: {fileID: 7187269372574785429}
   - component: {fileID: 5065095628991987299}
   - component: {fileID: 7397068898023895118}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: entryArchon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -671,7 +671,7 @@ GameObject:
   - component: {fileID: 7875673596968415350}
   - component: {fileID: 8000248190793877602}
   - component: {fileID: 3089760363531253636}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: entryArchon (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -778,7 +778,7 @@ GameObject:
   - component: {fileID: 4015057647769669247}
   - component: {fileID: 4015057647772585789}
   - component: {fileID: 4015057647771487493}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_Angle_Large_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -862,7 +862,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4015057647769702019}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_Angle_Large_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -897,7 +897,7 @@ GameObject:
   - component: {fileID: 2548255096284278068}
   - component: {fileID: 2626823863632121358}
   - component: {fileID: 2710149159519766535}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: entryArchon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1005,7 +1005,7 @@ GameObject:
   - component: {fileID: 4523436396967503090}
   - component: {fileID: 4523436396966505656}
   - component: {fileID: 4478154512338431888}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1112,7 +1112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4523436396968848514}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1144,7 +1144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5220608100553917905}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1179,7 +1179,7 @@ GameObject:
   - component: {fileID: 5220608100557360545}
   - component: {fileID: 5220608100556293611}
   - component: {fileID: 5228876851724879555}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1286,7 +1286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5405561988699334155}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1321,7 +1321,7 @@ GameObject:
   - component: {fileID: 5405561988702252667}
   - component: {fileID: 5405561988701185585}
   - component: {fileID: 5469491315922117913}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1431,7 +1431,7 @@ GameObject:
   - component: {fileID: 5930423363671123745}
   - component: {fileID: 5930423363672190827}
   - component: {fileID: 5957972045859384387}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1538,7 +1538,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5930423363674566481}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1571,7 +1571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6211634223352550044}
   - component: {fileID: 6211634223358635536}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1625,7 +1625,7 @@ GameObject:
   - component: {fileID: 6211634223352569172}
   - component: {fileID: 6211634223353304916}
   - component: {fileID: 6211634223354518728}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Arc_90_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1711,7 +1711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6211634223352514448}
   - component: {fileID: 6211634223358607966}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1763,7 +1763,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6211634223352566722}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Arc_90_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1799,7 +1799,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6211634223352616544}
   - component: {fileID: 6211634223358641594}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1853,7 +1853,7 @@ GameObject:
   - component: {fileID: 6275679399825879448}
   - component: {fileID: 6275679399827176344}
   - component: {fileID: 6275679399827861508}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Arc_90_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1939,7 +1939,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6275679399825899088}
   - component: {fileID: 6275679399823934172}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1992,7 +1992,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6275679399825832620}
   - component: {fileID: 6275679399823993206}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2045,7 +2045,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6275679399825861468}
   - component: {fileID: 6275679399823961746}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2097,7 +2097,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6275679399825882894}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Arc_90_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2134,7 +2134,7 @@ GameObject:
   - component: {fileID: 6527536563244884867}
   - component: {fileID: 6527536563245572801}
   - component: {fileID: 6527536563246702841}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_Angle_Large_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2218,7 +2218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6527536563244786559}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_Angle_Large_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2251,7 +2251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6603735659161864858}
   - component: {fileID: 6603735659155315008}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2303,7 +2303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6603735659161915192}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Arc_90_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2339,7 +2339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6603735659161967466}
   - component: {fileID: 6603735659155349156}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2393,7 +2393,7 @@ GameObject:
   - component: {fileID: 6603735659161911726}
   - component: {fileID: 6603735659160652718}
   - component: {fileID: 6603735659159961650}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Arc_90_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2479,7 +2479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6603735659161931366}
   - component: {fileID: 6603735659155337962}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2531,7 +2531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6627274332421425418}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2566,7 +2566,7 @@ GameObject:
   - component: {fileID: 6627274332424864122}
   - component: {fileID: 6627274332423801136}
   - component: {fileID: 6564891763584207384}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2673,7 +2673,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6668854484249110425}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2708,7 +2708,7 @@ GameObject:
   - component: {fileID: 6668854484246261737}
   - component: {fileID: 6668854484247259043}
   - component: {fileID: 6660656107459470475}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Arch_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2817,7 +2817,7 @@ GameObject:
   - component: {fileID: 6877790718382032867}
   - component: {fileID: 6877790718381147809}
   - component: {fileID: 6877790718380180633}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_Angle_Large_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2901,7 +2901,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6877790718381934367}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roof_Angle_Large_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2936,7 +2936,7 @@ GameObject:
   - component: {fileID: 5515876840774078903}
   - component: {fileID: 6373144339540141947}
   - component: {fileID: 184810752697828522}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: entryArchon (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3042,7 +3042,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9037423030429723294}
   - component: {fileID: 9037423030432126482}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3096,7 +3096,7 @@ GameObject:
   - component: {fileID: 9037423030429738326}
   - component: {fileID: 9037423030426808150}
   - component: {fileID: 9037423030427493578}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Arc_90_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3182,7 +3182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9037423030429695890}
   - component: {fileID: 9037423030432119388}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3234,7 +3234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9037423030429739968}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_Arc_90_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3270,7 +3270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9037423030429789794}
   - component: {fileID: 9037423030432153016}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}

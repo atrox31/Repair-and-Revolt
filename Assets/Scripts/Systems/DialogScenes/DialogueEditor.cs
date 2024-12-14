@@ -1,100 +1,117 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Scripts.Systems.DialogScenes
+[CustomEditor(typeof(DialogueData))]
+public class DialogueEditor : Editor
 {
-    public class DialogueEditor : EditorWindow
-    {
-        private DialogueData currentDialogue;
-        private Vector2 scrollPosition;
+    private DialogueData dialogueData;
+    private bool showLines = true;
 
-        [MenuItem("Tools/Dialogue Editor")]
-        public static void ShowWindow()
+    // Track the current dialogue line and event being edited for position
+    private DialogueLine editingLine = null;
+    private DialogueEvent editingEvent = null;
+
+    public override void OnInspectorGUI()
+    {
+        dialogueData = (DialogueData)target;
+
+        EditorGUILayout.LabelField("Dialogue Data Editor", EditorStyles.boldLabel);
+
+        dialogueData.dialogueTitle = EditorGUILayout.TextField("Title", dialogueData.dialogueTitle);
+        dialogueData.dialogueDescription = EditorGUILayout.TextField("Description", dialogueData.dialogueDescription);
+
+        if (GUILayout.Button("Add Dialogue Line"))
         {
-            GetWindow<DialogueEditor>("Dialogue Editor");
+            dialogueData.dialogueLines.Add(new DialogueLine());
         }
 
-        private void OnGUI()
+        showLines = EditorGUILayout.Foldout(showLines, "Dialogue Lines");
+
+        if (showLines)
         {
-            GUILayout.Label("Dialogue Editor", EditorStyles.boldLabel);
-
-            // Load or create dialogue
-            currentDialogue = (DialogueData)EditorGUILayout.ObjectField("Dialogue File", currentDialogue, typeof(DialogueData), false);
-            if (currentDialogue == null)
+            for (int i = 0; i < dialogueData.dialogueLines.Count; i++)
             {
-                if (GUILayout.Button("Create New Dialogue"))
-                {
-                    currentDialogue = CreateInstance<DialogueData>();
-                    AssetDatabase.CreateAsset(currentDialogue, "Assets/NewDialogue.asset");
-                    AssetDatabase.SaveAssets();
-                }
-                return;
-            }
-
-            if (GUILayout.Button("Save Dialogue"))
-            {
-                EditorUtility.SetDirty(currentDialogue);
-                AssetDatabase.SaveAssets();
-            }
-
-            GUILayout.Space(10);
-
-            scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
-
-            for (int i = 0; i < currentDialogue.lines.Count; i++)
-            {
-                var line = currentDialogue.lines[i];
+                DialogueLine line = dialogueData.dialogueLines[i];
+                EditorGUILayout.Space();
                 EditorGUILayout.BeginVertical("box");
 
-                GUILayout.Label($"Line {i + 1}", EditorStyles.boldLabel);
+                EditorGUILayout.LabelField($"Line {i + 1}", EditorStyles.boldLabel);
 
-                line.characterName = EditorGUILayout.TextField("Speaker Name", line.characterName);
-                line.text = EditorGUILayout.TextField("Dialogue Text", line.text);
-                line.voiceOverClip = (AudioClip)EditorGUILayout.ObjectField("Voice Over", line.voiceOverClip, typeof(AudioClip), false);
+                line.characterName = EditorGUILayout.TextField("Character Name", line.characterName);
+                line.receiver = EditorGUILayout.TextField("Receiver", line.receiver);
+                line.dialogueText = EditorGUILayout.TextField("Dialogue Text", line.dialogueText);
+                line.voiceOver = (AudioClip)EditorGUILayout.ObjectField("Voice Over", line.voiceOver, typeof(AudioClip), false);
+                line.timestamp = EditorGUILayout.FloatField("Timestamp", line.timestamp);
 
-                EditorGUILayout.LabelField("Actions:");
-                if (line.events == null)
-                    line.events = new System.Collections.Generic.List<DialogueEvent>();
-
-                for (int j = 0; j < line.events.Count; j++)
-                {
-                    var action = line.events[j];
-                    EditorGUILayout.BeginHorizontal();
-                    action.actionName = (DialogueAction)EditorGUILayout.EnumPopup("Action Type", action.actionName);
-                    action.targetObjectName = EditorGUILayout.TextField("Target Name", action.targetObjectName);
-                    action.moveToPosition = EditorGUILayout.Vector3Field("Move To Position", action.moveToPosition);
-                    action.mustMoveFirst = EditorGUILayout.Toggle("Move To Position", action.mustMoveFirst);
-                    action.startTimestamp = EditorGUILayout.FloatField("Start Time", action.startTimestamp);
-
-                    if (GUILayout.Button("Remove Action"))
-                    {
-                        line.events.RemoveAt(j);
-                        break;
-                    }
-                    EditorGUILayout.EndHorizontal();
-                }
-
-                if (GUILayout.Button("Add Action"))
+                if (GUILayout.Button("Add Event"))
                 {
                     line.events.Add(new DialogueEvent());
                 }
 
+                for (int j = 0; j < line.events.Count; j++)
+                {
+                    DialogueEvent dialogueEvent = line.events[j];
+                    EditorGUILayout.Space();
+                    EditorGUILayout.BeginVertical("box");
+
+                    EditorGUILayout.LabelField($"Event {j + 1}", EditorStyles.boldLabel);
+
+                    dialogueEvent.actionType = (DialogueEvent.ActionType)EditorGUILayout.EnumPopup("Action Type", dialogueEvent.actionType);
+                    dialogueEvent.target = EditorGUILayout.TextField("Target", dialogueEvent.target);
+                    dialogueEvent.animationName = EditorGUILayout.TextField("Animation Name", dialogueEvent.animationName);
+
+                    if (dialogueEvent.targetPosition != Vector3.zero)
+                    {
+                        dialogueEvent.targetPosition = EditorGUILayout.Vector3Field("Target Position", dialogueEvent.targetPosition);
+                    }
+
+                    if (GUILayout.Button("Select Position From Scene"))
+                    {
+                        editingLine = line;
+                        editingEvent = dialogueEvent;
+                        DialoguePositionTool.StartPositionSelection(OnPositionSelected);
+                    }
+
+                    if (GUILayout.Button("Clear Position"))
+                    {
+                        dialogueEvent.targetPosition = Vector3.zero;
+                    }
+
+                    if (GUILayout.Button("Remove Event"))
+                    {
+                        line.events.RemoveAt(j);
+                    }
+
+                    EditorGUILayout.EndVertical();
+                }
+
                 if (GUILayout.Button("Remove Line"))
                 {
-                    currentDialogue.lines.RemoveAt(i);
-                    break;
+                    dialogueData.dialogueLines.RemoveAt(i);
                 }
 
                 EditorGUILayout.EndVertical();
-                GUILayout.Space(5);
             }
-
-            if (GUILayout.Button("Add New Line"))
-            {
-                currentDialogue.lines.Add(new DialogueLine());
-            }
-
-            EditorGUILayout.EndScrollView();
         }
+
+        if (GUILayout.Button("Save Dialogue"))
+        {
+            EditorUtility.SetDirty(dialogueData);
+            AssetDatabase.SaveAssets();
+        }
+
+        EditorUtility.SetDirty(dialogueData);
+    }
+
+    private void OnPositionSelected(Vector3 position)
+    {
+        if (editingEvent != null)
+        {
+            editingEvent.targetPosition = position;
+            Debug.Log($"Position selected: {position}");
+        }
+
+        editingLine = null;
+        editingEvent = null;
     }
 }

@@ -1,17 +1,16 @@
 using System;
+using UnityEngine;
 
 namespace Assets.Scripts.Systems.LevelGeneration
 {
-    public class World : IDisposable
+    public class World
     {
-        private static World _singleton = null;
-        public static World Instance { get { return _singleton; } }
         public enum WorldTitle
         {
             ERROR, EMPTY, VALLEY, ROOM, DEAD_END
         }
-        public int Width { get; }
-        public int Height { get; }
+        public int Width { get; private set; }
+        public int Height { get; private set; }
         WorldTitle[] _data;
         private World(int width, int height)
         {
@@ -24,16 +23,29 @@ namespace Assets.Scripts.Systems.LevelGeneration
             }
 
         }
-        public void Dispose()
+
+        public void ExpandWorld(int size = 4)
         {
-            _singleton = null;
-            GC.SuppressFinalize(this);
+            int new_width = Width + size;
+            int new_height = Height + size;
+            WorldTitle[] new_data = new WorldTitle[new_width * new_height];
+            new_data.Fill(WorldTitle.EMPTY);
+
+            for (int i = 0; i < Width; i++)
+            {
+                for (int j = 0; j < Height; j++)
+                {
+                    new_data[i + j * new_height] = _data[i + j * Height];
+                }
+            }
+            Width = new_width;
+            Height = new_height;
+            _data = new_data;
         }
 
-        public static void CreateWorld(int width, int height)
+        public static World CreateWorld(int width, int height)
         {
-            _singleton?.Dispose();
-            _singleton = new World(width, height);
+            return new World(width, height);
         }
 
         public MPoint GetDimensions()

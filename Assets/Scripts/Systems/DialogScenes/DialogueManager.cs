@@ -1,166 +1,137 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Assets.Scripts.Systems.DialogScenes
+public class DialogueManager : MonoBehaviour
 {
-    public class DialogueManager : MonoBehaviour
+    public DialogueData dialogueData;
+    private int currentLineIndex = 0;
+
+    public delegate void EventAction(DialogueEvent dialogueEvent);
+    public static event EventAction OnDialogueEventTriggered;
+
+    public Dictionary<string, GameObject> characters = new Dictionary<string, GameObject>(); // Link names to character GameObjects
+
+    private void Start()
     {
-        public Text characterNameText;
-        public Text dialogueText;
-        public GameObject dialoguePanel;
-        public Animator characterAnimator;
-        public AudioSource audioSource;
-        public GameObject playerCharacter;
-        public GameObject currentCharacter;
+        StartCoroutine(PlayDialogue());
+    }
 
-        private DialogueData currentDialogue;
-        private int currentLineIndex = 0;
-        private float audioStartTime;
-        private bool isMoving = false;  // Track if the character is currently moving
-        private bool isEventActive = false;  // Track if an event is currently active
-
-        public void StartDialogue(DialogueData dialogue)
+    private IEnumerator PlayDialogue()
+    {
+        while (currentLineIndex < dialogueData.dialogueLines.Count)
         {
-            currentDialogue = dialogue;
-            currentLineIndex = 0;
-            dialoguePanel.SetActive(true);
-            DisplayNextLine();
+            DialogueLine line = dialogueData.dialogueLines[currentLineIndex];
+            float delay = line.timestamp > 0 ? line.timestamp - Time.time : 0;
+
+            if (delay > 0)
+                yield return new WaitForSeconds(delay);
+
+            StartCoroutine(PlayLine(line));
+            currentLineIndex++;
+        }
+    }
+
+    private IEnumerator PlayLine(DialogueLine line)
+    {
+        if (characters.TryGetValue(line.characterName, out GameObject speaker))
+        {
+            // Make the speaking character look at the receiver
+            if (!string.IsNullOrEmpty(line.receiver) && characters.TryGetValue(line.receiver, out GameObject receiver))
+            {
+                Vector3 lookDirection = receiver.transform.position - speaker.transform.position;
+                speaker.transform.rotation = Quaternion.LookRotation(lookDirection);
+            }
+
+            // Trigger dialogue and voice-over
+            Debug.Log($"[{line.characterName}]: {line.dialogueText}");
+            AudioSource audioSource = speaker.GetComponent<AudioSource>();
+            float audioLength = 0;
+
+            if (line.voiceOver != null && audioSource)
+            {
+                audioSource.clip = line.voiceOver;
+                audioSource.Play();
+                audioLength = line.voiceOver.length;
+            }
+
+            // Process events tied to this line
+            foreach (var dialogueEvent in line.events)
+            {
+                HandleEvent(dialogueEvent, speaker);
+            }
+
+            // Wait for the line's audio to complete before continuing
+            yield return new WaitForSeconds(audioLength > 0 ? audioLength : 1f);
+        }
+    }
+
+    private void HandleEvent(DialogueEvent dialogueEvent, GameObject speaker)
+    {
+        switch (dialogueEvent.actionType)
+        {
+            case DialogueEvent.ActionType.Move:
+                StartCoroutine(HandleMove(dialogueEvent, speaker));
+                break;
+
+            case DialogueEvent.ActionType.PickUp:
+                // Ensure the character reaches the target before executing the pickup
+                if (dialogueEvent.targetPosition != Vector3.zero)
+                    StartCoroutine(HandleMove(dialogueEvent, speaker, () => Debug.Log($"{speaker.name} picks up {dialogueEvent.target}")));
+                break;
+
+            case DialogueEvent.ActionType.React:
+                HandleReaction(dialogueEvent, speaker);
+                break;
+
+            case DialogueEvent.ActionType.Animate:
+                PlayAnimation(speaker, dialogueEvent.animationName);
+                break;
+
+            case DialogueEvent.ActionType.Use:
+                Debug.Log($"{speaker.name} uses {dialogueEvent.target}");
+                break;
+        }
+    }
+
+    private IEnumerator HandleMove(DialogueEvent dialogueEvent, GameObject speaker, System.Action onComplete = null)
+    {
+        if (dialogueEvent.targetPosition == Vector3.zero)
+            yield break;
+
+        Animator animator = speaker.GetComponent<Animator>();
+        Vector3 startPosition = speaker.transform.position;
+        Vector3 endPosition = dialogueEvent.targetPosition;
+        float moveSpeed = 2.0f; // Adjustable speed
+        float distance = Vector3.Distance(startPosition, endPosition);
+
+        if (animator)
+            animator.SetBool("isWalking", true);
+
+        while (distance > 0.1f)
+        {
+            speaker.transform.position = Vector3.MoveTowards(speaker.transform.position, endPosition, moveSpeed * Time.deltaTime);
+            distance = Vector3.Distance(speaker.transform.position, endPosition);
+            yield return null;
         }
 
-        public void DisplayNextLine()
+        if (animator)
+            animator.SetBool("isWalking", false);
+
+        onComplete?.Invoke();
+    }
+
+    private void HandleReaction(DialogueEvent dialogueEvent, GameObject speaker)
+    {
+        PlayAnimation(speaker, dialogueEvent.animationName);
+    }
+
+    private void PlayAnimation(GameObject character, string animationName)
+    {
+        Animator animator = character.GetComponent<Animator>();
+        if (animator && !string.IsNullOrEmpty(animationName))
         {
-            if (currentLineIndex < currentDialogue.lines.Count)
-            {
-                DialogueLine line = currentDialogue.lines[currentLineIndex];
-                characterNameText.text = line.characterName;
-                dialogueText.text = line.text;
-
-                // Handle character movement and events sequentially
-                HandleCharacterMovement(line);
-
-                // Handle voiceover, if any
-                if (line.voiceOverClip != null)
-                {
-                    audioSource.clip = line.voiceOverClip;
-                    audioSource.Play();
-                    audioStartTime = Time.time;
-                    StartCoroutine(WaitForAudioToFinish(line.voiceOverClip.length, line.events));
-                }
-
-                currentLineIndex++;
-            }
-            else
-            {
-                EndDialogue();
-            }
-        }
-
-        private void HandleCharacterMovement(DialogueLine line)
-        {
-            // Only process if there are events
-            if (line.events != null && line.events.Count > 0)
-            {
-                foreach (var dialogueEvent in line.events)
-                {
-                    // Check if the event is delayed based on the start timestamp
-                    if (Time.time >= audioStartTime + dialogueEvent.startTimestamp)
-                    {
-                        if (dialogueEvent.mustMoveFirst)
-                        {
-                            // Prevent other events until movement is finished
-                            StartCoroutine(MoveCharacterToPosition(dialogueEvent.moveToPosition, dialogueEvent.moveSpeed, dialogueEvent));
-                        }
-                        else
-                        {
-                            // Trigger the event immediately
-                            TriggerEvent(dialogueEvent);
-                        }
-                    }
-                }
-            }
-        }
-
-        private IEnumerator MoveCharacterToPosition(Vector3 targetPosition, float moveSpeed, DialogueEvent dialogueEvent)
-        {
-            isMoving = true;
-            Vector3 startPosition = currentCharacter.transform.position;
-            float journeyLength = Vector3.Distance(startPosition, targetPosition);
-            float startTime = Time.time;
-
-            // Move character to the target position
-            while (Vector3.Distance(currentCharacter.transform.position, targetPosition) > 0.1f)
-            {
-                float distanceCovered = (Time.time - startTime) * moveSpeed;
-                float fractionOfJourney = distanceCovered / journeyLength;
-                currentCharacter.transform.position = Vector3.Lerp(startPosition, targetPosition, fractionOfJourney);
-
-                yield return null;
-            }
-
-            currentCharacter.transform.position = targetPosition;
-
-            // Once movement is finished, we trigger the event
-            isMoving = false;
-            TriggerEvent(dialogueEvent);
-        }
-
-        private void TriggerEvent(DialogueEvent dialogueEvent)
-        {
-            if (isMoving || isEventActive)
-            {
-                // If movement is still in progress or event is already active, don't trigger the action
-                return;
-            }
-
-            isEventActive = true;  // Mark the event as active to avoid re-triggering during this time
-
-            switch (dialogueEvent.actionName)
-            {
-                case DialogueAction.PickUpItem:
-                    GameObject targetObject = GameObject.Find(dialogueEvent.targetObjectName);
-                    if (targetObject != null)
-                    {
-                        //targetObject.GetComponent<Item>().PickUp();  // Trigger the pickup action
-                    }
-                    break;
-
-                case DialogueAction.PressButton:
-                    GameObject buttonObject = GameObject.Find(dialogueEvent.targetObjectName);
-                    if (buttonObject != null)
-                    {
-                        //buttonObject.GetComponent<Button>().Press();  // Trigger the button press
-                    }
-                    break;
-
-            }
-
-            isEventActive = false;  // Reset the event status after execution
-        }
-
-        private IEnumerator WaitForAudioToFinish(float audioLength, System.Collections.Generic.List<DialogueEvent> events)
-        {
-            float audioEndTime = audioStartTime + audioLength;
-
-            // Wait until the audio finishes, checking event timestamps
-            foreach (var dialogueEvent in events)
-            {
-                while (Time.time < audioEndTime)
-                {
-                    yield return null;
-                }
-
-                // Trigger the event after audio finishes
-                TriggerEvent(dialogueEvent);
-            }
-
-            // Proceed to next dialogue line
-            DisplayNextLine();
-        }
-
-        private void EndDialogue()
-        {
-            dialoguePanel.SetActive(false);
+            animator.Play(animationName);
         }
     }
 }
