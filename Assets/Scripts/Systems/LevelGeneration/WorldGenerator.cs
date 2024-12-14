@@ -3,9 +3,6 @@ using System.Linq;
 using Assets.Scripts.Extensions;
 using Unity.AI.Navigation;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.LightTransport;
-using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.Systems.LevelGeneration
