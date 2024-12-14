@@ -1,19 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Systems.Inventory
 {
-    public class Item
+    [CreateAssetMenu(menuName = "Inventory item")]
+    public class Item : ScriptableObject
     {
-        public readonly Guid Id;
-        public readonly string Name;
-        public readonly Sprite Icon;
-
-        public Item(string name, Sprite icon)
-        {
-            Id = Guid.NewGuid();
-            Name = name;
-            Icon = icon;
-        }
+        public string Name;
+        public Texture2D Icon;
     }
 }

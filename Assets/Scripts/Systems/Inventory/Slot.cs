@@ -1,6 +1,5 @@
-﻿using System;
-using Assets.Scripts.Extensions;
-using UnityEngine;
+﻿using Assets.Scripts.Extensions;
+using JetBrains.Annotations;
 using UnityEngine.UIElements;
 
 namespace Assets.Scripts.Systems.Inventory
@@ -8,21 +7,18 @@ namespace Assets.Scripts.Systems.Inventory
     public class Slot : VisualElement
     {
         public Image Icon;
-        public Label IndexLabel;
-        public Sprite BaseSprite;
-
-        public Guid ItemId { get; private set; } = Guid.Empty;
-        public int Index => parent.IndexOf(this);
+        public Label Label;
+        public Item Item;
 
         public Slot()
         {
             Icon = this.CreateChild<Image>("slotIcon");
-            IndexLabel = this.CreateChild<Label>("slotIndex");
+            Label = this.CreateChild<Label>("slotLabel");
         }
 
         public void Start()
         {
-            IndexLabel.text = $"{Index + 1}";
+            Reset();
         }
 
         public void SetActive()
@@ -37,12 +33,25 @@ namespace Assets.Scripts.Systems.Inventory
             this.AddClass("slotActive");
         }
 
-        public void Set(Guid id, Sprite icon)
+        public void Set([CanBeNull] Item item)
         {
-            ItemId = id;
-            BaseSprite = icon;
+            if (item is null)
+            {
+                Reset();
+                return;
+            }
 
-            Icon.image = BaseSprite != null ? icon.texture : null;
+            Item = item;
+            Label.text = item.Name;
+            Icon.image = item.Icon;
+            Icon.StretchToParentSize();
+        }
+
+        private void Reset()
+        {
+            Item = null;
+            Label.text = string.Empty;
+            Icon.image = null;
         }
     }
 }

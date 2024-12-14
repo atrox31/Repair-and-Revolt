@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 759395878}
   - component: {fileID: 759395877}
   - component: {fileID: 759395881}
+  - component: {fileID: 759395882}
   m_Layer: 0
   m_Name: Red Card
   m_TagString: Untagged
@@ -477,6 +478,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240a08a6f0bde5c458a14a43757e5c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _item: {fileID: 11400000, guid: b82f0b81406c58247be4e41215ffd8aa, type: 2}
+--- !u!114 &759395882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759395876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1110301477
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,6 +620,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1066070825192133009, guid: fac45298887ce5b45bab9d99413af6bc, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066070825192133009, guid: fac45298887ce5b45bab9d99413af6bc, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1756454248616826881, guid: fac45298887ce5b45bab9d99413af6bc, type: 3}

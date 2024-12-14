@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Interfaces;
+using Assets.Scripts.Systems.EventSystem;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -21,12 +22,16 @@ namespace Assets.Scripts.Systems.Inventory
                 if (_time > 1)
                 {
                     DestroyGameObject();
+                    EventManager.Player.OnItemPicked.Invoke(GameObject.FindWithTag("Player"), this);
                     return;
                 }
 
                 transform.position = Vector3.Lerp(_startPosition, _endPosition, _time);
             }
         }
+
+        [SerializeField] private Item _item;
+        public Item Item => _item;
 
         public virtual void Pick()
         {

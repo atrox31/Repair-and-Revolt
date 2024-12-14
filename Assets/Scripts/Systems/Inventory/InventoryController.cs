@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 
 namespace Assets.Scripts.Systems.Inventory
 {
@@ -25,25 +24,6 @@ namespace Assets.Scripts.Systems.Inventory
         private IEnumerator Initialize()
         {
             yield return _view.InitializeView(_capacity);
-
-            RefreshView();
-        }
-
-        private void RefreshView()
-        {
-            for (int i = 0; i < _capacity; i++)
-            {
-                Item item = null; // TODO
-
-                if (item == null || item.Id.Equals(Guid.Empty))
-                {
-                    _view.Slots[i].Set(Guid.Empty, null);
-                }
-                else
-                {
-                    _view.Slots[i].Set(item.Id, item.Icon);
-                }
-            }
         }
     }
 }
