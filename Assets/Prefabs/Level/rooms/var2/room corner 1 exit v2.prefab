@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1106025028338523770}
-  - component: {fileID: 2722983477242939075}
   m_Layer: 0
   m_Name: room corner 1 exit v2
   m_TagString: Untagged
@@ -43,18 +42,6 @@ Transform:
   - {fileID: 5406215425632045772}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2722983477242939075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6835040043617621142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ee6bfc0abc38494ab220a185b8325b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &165412764296355559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -263,7 +250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4268052577078974289, guid: 1b3e0469b35a39a4a932db3e7a4632f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.507
+      value: -0.247
       objectReference: {fileID: 0}
     - target: {fileID: 7944964682885319234, guid: 1b3e0469b35a39a4a932db3e7a4632f2, type: 3}
       propertyPath: m_LocalPosition.x

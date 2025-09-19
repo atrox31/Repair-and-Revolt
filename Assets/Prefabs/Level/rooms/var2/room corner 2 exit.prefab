@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6876323489284151803}
-  - component: {fileID: -574496448961401539}
   m_Layer: 0
   m_Name: room corner 2 exit
   m_TagString: Untagged
@@ -44,18 +43,6 @@ Transform:
   - {fileID: 8922083269702006474}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-574496448961401539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 932947676382187272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ee6bfc0abc38494ab220a185b8325b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &538860590682502814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -293,6 +280,10 @@ PrefabInstance:
     - target: {fileID: 2436534748292407252, guid: bf8b63ed57797914bac3bf99f61d4d89, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114261153429354431, guid: bf8b63ed57797914bac3bf99f61d4d89, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.232
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -698,7 +689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4268052577078974289, guid: 1b3e0469b35a39a4a932db3e7a4632f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.507
+      value: -0.279
       objectReference: {fileID: 0}
     - target: {fileID: 7944964682885319234, guid: 1b3e0469b35a39a4a932db3e7a4632f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -801,6 +792,10 @@ PrefabInstance:
     - target: {fileID: 1587025835072176624, guid: 5a9660ae74c09cb428db77ee925eb446, type: 3}
       propertyPath: m_Name
       value: roof small
+      objectReference: {fileID: 0}
+    - target: {fileID: 2797800937034190895, guid: 5a9660ae74c09cb428db77ee925eb446, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.991
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
